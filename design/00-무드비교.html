@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이천 아이맵 무드 비교</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#ececec;color:#222;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;padding:24px 16px 48px}
+  .page-h{max-width:1180px;margin:0 auto 20px}
+  .page-h h1{font-size:20px;margin:0 0 6px}
+  .page-h p{margin:0;font-size:14px;color:#555}
+  .cols{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:1180px;margin:0 auto}
+  .col{width:372px;max-width:100%}
+  .col .label{font-size:15px;font-weight:700;margin:0 0 4px}
+  .col .desc{font-size:13px;color:#555;margin:0 0 10px;min-height:36px}
+  .phone{border:1px solid #bbb;border-radius:28px;padding:12px;background:var(--pg);box-sizing:border-box;width:100%}
+  .screen{font-size:14px;line-height:1.5;color:var(--tx)}
+  .mini{margin-top:14px;padding:12px;border-radius:14px;background:var(--pg);border:1px solid #bbb;box-sizing:border-box;width:100%}
+  .mini .cap{font-size:12px;color:#666;margin:0 0 8px}
+  .top{font-size:13px;color:var(--ac);margin:4px 0 10px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px;align-items:center}
+  .chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--bd);background:var(--cd);color:var(--mu)}
+  .chip.on{background:var(--acbg);color:var(--ac);border-color:var(--ac);font-weight:600}
+  .chip.sm{padding:3px 9px;font-size:12px}
+  .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:6px;background:var(--acbg);color:var(--ac);margin-right:6px}
+  h2.t{font-size:20px;margin:0 0 4px;color:var(--hd);font-family:var(--hf);font-weight:var(--hw)}
+  .intro{margin:0 0 12px;color:var(--mu);font-size:14px}
+  .card{background:var(--cd);border:1px solid var(--bd);border-radius:var(--rd);overflow:hidden;margin:0 0 12px}
+  .band{background:var(--band);color:var(--bandtx);padding:8px 14px;font-size:13px;font-weight:600;display:none}
+  .m-c .band{display:block}
+  .photo{height:150px;background:var(--ph);color:var(--phtx);display:flex;align-items:center;justify-content:center;font-size:13px}
+  .body{padding:12px 14px}
+  .name{font-size:18px;font-weight:700;color:var(--hd);font-family:var(--hf);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .badge{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--acbg);color:var(--ac)}
+  .park{margin:8px 0 6px;padding:8px 10px;border-radius:8px;background:var(--acbg);color:var(--ac);font-weight:600;font-size:14px}
+  .fac{color:var(--mu);font-size:13px}
+  .hint{margin-top:8px;font-size:12px;color:var(--mu)}
+  .open{border-top:1px solid var(--bd);padding:10px 14px 4px}
+  .h{font-size:12px;font-weight:700;color:var(--mu);letter-spacing:.02em;margin:8px 0 6px}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:var(--div)}
+  .row:last-child{border-bottom:0}
+  .row .l{flex:1;min-width:0}
+  .row b{display:block;font-size:14px;color:var(--tx)}
+  .row .sub{display:block;font-size:12px;color:var(--mu)}
+  .chain{font-size:13px;color:var(--tx)}
+  .chain .ar{color:var(--ac);font-weight:700;margin:0 4px}
+  a.lk{white-space:nowrap;font-size:13px;color:var(--ac);text-decoration:underline;text-underline-offset:3px}
+  .m-c a.lk{background:var(--ac);color:#fff;text-decoration:none;padding:6px 10px;border-radius:8px;font-weight:600}
+  ul.tips{margin:0;padding:0 0 4px 0;list-style:none}
+  ul.tips li{font-size:13px;padding:6px 0;border-bottom:var(--div)}
+  ul.tips li:last-child{border-bottom:0}
+  .note{margin:0 0 10px;font-size:13px;color:var(--mu)}
+  a.btn{display:block;text-align:center;padding:12px;border-radius:10px;border:1.5px solid var(--ac);color:var(--ac);font-weight:700;font-size:14px;text-decoration:none;background:var(--btnbg)}
+  .m-c a.btn{background:var(--ac);color:#fff}
+  .foot{font-size:12px;color:var(--mu);padding:8px 4px 4px;text-align:center}
+  .course .meta{display:flex;justify-content:space-between;align-items:center}
+  .course .region{font-size:12px;color:var(--mu)}
+  .course .cn{font-size:16px;font-weight:700;margin:6px 0 2px;color:var(--hd);font-family:var(--hf)}
+  .course .cs{font-size:13px;color:var(--mu)}
+  .rain{font-size:11px;padding:2px 7px;border-radius:6px;border:1px solid var(--bd);color:var(--mu)}
+
+  .m-d{--pg:#FAF7F0;--cd:#FFFFFF;--bd:#E6E0D4;--tx:#1F2933;--mu:#5C6470;--hd:#111827;--ac:#0F6E56;--acbg:#E1F5EE;--rd:12px;--ph:#F1EDE4;--phtx:#8B8374;--div:1px solid #EEEAE2;--hf:inherit;--hw:700;--btnbg:#fff}
+  .m-d a.lk{background:var(--ac);color:#fff;text-decoration:none;padding:9px 12px;border-radius:8px;font-weight:600}
+  .m-d a.btn{background:var(--ac);color:#fff}
+  .m-a{--pg:#F4F5F7;--cd:#FFFFFF;--bd:#E1E4E8;--tx:#1F2933;--mu:#5C6470;--hd:#111827;--ac:#0F6E56;--acbg:#E1F5EE;--rd:12px;--ph:#E9ECEF;--phtx:#7C8590;--div:1px solid #EEF0F2;--hf:inherit;--hw:700;--btnbg:#fff}
+  .m-b{--pg:#F6EFE3;--cd:#FFFCF5;--bd:#E4D8C3;--tx:#2B241B;--mu:#6E6252;--hd:#3B2A16;--ac:#8A4B1E;--acbg:#F5E6D3;--rd:6px;--ph:#EDE3D0;--phtx:#8B7A5E;--div:1px dashed #D9CDB8;--hf:"Noto Serif KR",serif;--hw:700;--btnbg:#FFFCF5}
+  .m-c{--pg:#FFFFFF;--cd:#FFFFFF;--bd:#E1E4E8;--tx:#1F2933;--mu:#5C6470;--hd:#111827;--ac:#534AB7;--acbg:#EEEDFE;--rd:16px;--ph:#E9ECEF;--phtx:#7C8590;--div:1px solid #EEF0F2;--hf:inherit;--hw:800;--band:#534AB7;--bandtx:#fff;--btnbg:#fff}
+  .m-c .chip.on{background:#534AB7;color:#fff}
+  .m-c .park{background:#534AB7;color:#fff}
+  .m-c .mini .chip.on{background:#3B6D11;border-color:#3B6D11;color:#fff}
+  .m-c .mini .card{border-top:6px solid #3B6D11}
+  .m-b .chip.on{background:#8A4B1E;color:#fff;border-color:#8A4B1E}
+</style>
+</head>
+<body>
+<div class="page-h">
+  <h1>이천 아이맵 무드 비교 (같은 화면, 다른 분위기)</h1>
+  <p>위쪽은 코스 상세(스팟 카드 접힘 + 펼침 일부), 아래쪽은 코스 목록의 취향 칩과 코스 카드 1장입니다. 카드 안 문구는 모양을 보여주기 위한 예시이며 실제 운영 정보가 아닙니다.</p>
+</div>
+<div class="cols" id="cols"></div>
+<script>
+const moods = [
+  {k:'d', label:'확정안: A + 크림 바탕', desc:'A의 흰 카드·청록 강조는 그대로, 바탕은 연한 미색(#FAF7F0), 줄 끝 링크와 큰 버튼은 C처럼 청록 채움 둥근 박스.'},
+  {k:'a', label:'A. 화이트 체크카드', desc:'흰 카드 + 회색 테두리, 강조색은 짙은 청록 하나. 링크와 추천 주차장 띠에만 색을 씀.'},
+  {k:'b', label:'B. 크림 종이 메뉴판', desc:'크림 바탕, 명조체 제목, 점선 구분선. 갈색 강조. 종이 안내판 느낌.'},
+  {k:'c', label:'C. 트랙 컬러 블록', desc:'카드 머리띠와 버튼을 취향 트랙 색으로 채움(이야기·문화 보라, 야외 초록). 색이 강함.'}
+];
+function screen(){return `
+<div class="screen">
+  <div class="top">← 코스 목록</div>
+  <div class="chips"><span class="chip on sm">이야기·문화</span><span class="rain">비 오는 날 OK</span></div>
+  <h2 class="t">설봉공원 이야기·문화 코스</h2>
+  <p class="intro">위쪽 주차장에 대고 시립박물관·월전미술관·도자미술관을 도는 실내 코스</p>
+  <div class="card">
+    <div class="band">이야기·문화</div>
+    <div class="photo">스팟 대표 사진 자리 (없어도 됨)</div>
+    <div class="body">
+      <div class="name">설봉공원 <span class="badge">방문 팁 2</span></div>
+      <div class="park">P 위쪽 주차장에 대면 시립박물관·미술관이 가깝다</div>
+      <div class="fac">이 코스에서 가는 곳: 시립박물관 · 월전미술관 · 도자미술관</div>
+      <div class="hint">☝ 누르면 자세히</div>
+    </div>
+    <div class="open">
+      <div class="h">주차 안내</div>
+      <div class="row"><div class="l chain">위쪽 주차장<span class="ar">→</span>시립박물관·월전미술관<span class="ar">→</span>주차장 끝 계단으로 올라감</div><a class="lk">네이버지도에서 열기</a></div>
+      <div class="row"><div class="l chain">아래쪽 주차장<span class="ar">→</span>놀이터·조각공원<span class="ar">→</span>호수 쪽으로 걸어 내려감</div><a class="lk">네이버지도에서 열기</a></div>
+      <div class="h">시설</div>
+      <div class="row"><div class="l"><b>시립박물관</b><span class="sub">09:00~18:00 · 월요일 휴관 (예시)</span></div><a class="lk">공식 페이지</a></div>
+      <div class="row"><div class="l"><b>월전미술관</b><span class="sub">10:00~18:00 · 월요일 휴관 (예시)</span></div><a class="lk">공식 페이지</a></div>
+      <div class="h">방문 팁</div>
+      <ul class="tips">
+        <li><span class="tag">운영</span>공사 가림막이 있어도 개관 중일 수 있으니 공식 페이지를 먼저 본다</li>
+        <li><span class="tag">진입</span>위쪽 주차장 끝 계단이 박물관 입구와 가장 가깝다</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card"><div class="body">
+    <div class="h">식당 부록</div>
+    <p class="note">이천 식당·카페는 18~19시에 닫는 곳이 많으니 저녁은 영업시간을 먼저 확인하세요</p>
+    <a class="btn">근처 식당 네이버지도에서 보기</a>
+  </div></div>
+  <div class="foot">운영 정보는 2026-09-04 기준입니다. 방문 전 공식 페이지에서 확인하세요.</div>
+</div>`}
+function mini(){return `
+<p class="cap">코스 목록: 취향 3택 칩 + 코스 카드</p>
+<div class="chips"><span class="chip">만들기</span><span class="chip on">야외 활동</span><span class="chip">이야기·문화</span></div>
+<div class="card course"><div class="body">
+  <div class="meta"><span class="chip sm on">야외 활동</span><span class="region">도심·설봉권</span></div>
+  <div class="cn">설봉공원 야외 활동 코스</div>
+  <div class="cs">설봉공원 · 아래쪽 주차장 → 놀이터·조각공원·호수 산책</div>
+</div></div>`}
+document.getElementById('cols').innerHTML = moods.map(m=>`
+<div class="col m-${m.k}">
+  <p class="label">${m.label}</p>
+  <p class="desc">${m.desc}</p>
+  <div class="phone">${screen()}</div>
+  <div class="mini">${mini()}</div>
+</div>`).join('');
+</script>
+</body>
+</html>

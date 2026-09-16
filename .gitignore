@@ -1,0 +1,8 @@
+# Claude Code 로컬 설정 (임시 경로 포함)
+.claude/
+
+# 의존성·임시 파일
+node_modules/
+*.tmp
+Thumbs.db
+.DS_Store
