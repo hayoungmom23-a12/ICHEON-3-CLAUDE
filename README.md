@@ -9,6 +9,7 @@
 무드: 화이트 체크카드 + 크림 바탕 + 채움 버튼. 모바일 390px 한 열, PC는 가운데 640px 기둥.
 
 - 편집 가능한 캔버스(Claude Design 미리보기, claude.ai 로그인 필요): https://claude.ai/artifact/JFjU1gw62vBnanHWHNmZ8i
+- 클릭형 프로토타입 (칩 거르기, 코스 이동, 스팟 카드 펼치기가 동작): [05 프로토타입](design/05-프로토타입.html)
 - 편집기 없이 바로 열리는 HTML 시안 (내려받아 브라우저로 열기)
   - [01 코스 목록](design/01-코스목록.html)
   - [02 코스 상세](design/02-코스상세.html)

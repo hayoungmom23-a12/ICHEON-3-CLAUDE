@@ -116,6 +116,8 @@
 
 - 결과물 형태: Claude Design 캔버스(아트보드 4장). 주소: https://claude.ai/artifact/JFjU1gw62vBnanHWHNmZ8i (2026-09-16 저장, 버전 1)
 - 작업 파일: `design/canvas/Main.dc.html`(코스 목록), `design/canvas/CourseDetail.dc.html`(코스 상세), `design/canvas/Footer.dc.html`(하단 안내), `design/canvas/Components.dc.html`(구성요소와 규칙), `design/canvas/canvas.json`(배치). 조립 파일: `design/icheon-imap-screens.html`. 고칠 때는 작업 파일을 수정해 다시 조립하고 같은 주소로 갱신한다.
+- 편집기 없는 HTML 시안: `design/01-코스목록.html`, `02-코스상세.html`, `03-하단안내.html`, `04-구성요소와규칙.html` (아트보드를 그대로 뽑은 정적 파일).
+- 클릭형 프로토타입: `design/05-프로토타입.html` (2026-09-16 추가). 취향 칩 거르기, 코스 카드 → 코스 상세 이동(`#/course/<코스 id>` 주소), 스팟 카드 펼치기·접기, 바깥 버튼의 새 창 열기가 동작한다. 코스 5개와 스팟 5곳의 데이터를 파일 안 JS 객체로 두어 3단계 데이터 구조의 초안 역할을 한다. 운영시간·진입 방향은 자리표시.
 - PNG: 캔버스 도구 모음의 Export로 아트보드별로 내보낼 수 있다. 내보낸 파일은 `design/01-코스목록.png`, `design/02-코스상세.png`, `design/03-하단안내.png` 이름을 권장한다.
 - 확인 상태: 조립 검사(파일 구조·제목·아트보드 4장)는 통과했다. 실제 렌더링은 AI의 미리보기 창에서 파일이 커서 열리지 않아, 학습자가 캔버스 주소를 열어 확인하는 것으로 갈음한다. 시안 글꼴은 Noto Sans KR(Google Fonts)이며 구현 글꼴 Pretendard와 글자 폭이 거의 같다.
 
